@@ -5,19 +5,22 @@ import { fetchMovies } from '../actions';
 
 
 class MovieDetail extends Component {
-	renderList() {
-		return this.props.movie.map((movie) => {
-			console.log('hey');
-			return (
-				<li key={movie} className="list-group-item">{movie.results.title} </li>
-			);
-		});
+
+	renderMovie(movieData) {
+
+		console.log('Data is ' + movieData.total_pages);
+
+		return (
+			<ul key={movieData.total_pages}>
+				<li>{movieData.total_pages}</li>
+			</ul>
+		)
 	}
 
 	render() {
 		return (
 			<ul className="list-group col-sm-4">
-				{this.renderList()}
+				{this.props.movie.map(this.renderMovie)}
 			</ul>
 		);
 	}
@@ -25,9 +28,8 @@ class MovieDetail extends Component {
 
 }
 
-function mapStateToProps(state) {
-	return { movie: state.movie };
-	console.log(state.movie);
+function mapStateToProps({ movie }) {
+	return { movie }; // { movie } === { movie: movie }
 }
 
 export default connect(mapStateToProps)(MovieDetail);

@@ -20,6 +20,7 @@ class SearchBar extends Component {
     onFormSubmit(event) {
         event.preventDefault();
         this.props.fetchMovies(this.state.term);
+        this.setState({term: ''});
     }
 
     render() {
@@ -29,6 +30,7 @@ class SearchBar extends Component {
                     placeholder="Search for a movie"
                     className="form-control"
                     onChange={this.onInputChange}
+                    value={this.state.term}
                 />
 
                 <span className="input-group-btn">
