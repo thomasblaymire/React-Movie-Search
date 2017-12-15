@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import SearchBar from '../containers/SearchBar';
-import MovieDetail from './MovieDetail';
+import MovieDetail from '../containers/MovieDetail';
 
 class MovieLanding extends Component {
   render() {
